@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmFind</title>
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-body text-text">
+
+<header class="sticky top-0 left-0 z-50 bg-secondary border-b border-accent">
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                
+                <!-- Logo -->
+      <div class="flex items-center justify-between">
+        <a href="#" id="logo" class="text-3xl font-bold text-white flex items-center gap-2">
+         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm12.553 1.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                        </svg>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-accent">FilmFind</span>
+                    </a>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="lg:hidden text-white p-2 rounded-lg hover:bg-accent transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Navigation and Search Container -->
+                <div id="mobile-menu" class="hidden lg:flex lg:items-center lg:gap-6 flex-col lg:flex-row gap-4 w-full lg:w-auto">
+                    
+                    <!-- Navigation Links -->
+                    <ul class="flex flex-col lg:flex-row gap-2 lg:gap-6 w-full lg:w-auto">
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-white hover:text-accent transition-colors font-medium rounded-lg hover:bg-accent lg:hover:bg-transparent">
+                                Movies
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-white hover:text-accent transition-colors font-medium rounded-lg hover:bg-accent lg:hover:bg-transparent">
+                                TV Shows
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-white hover:text-accent transition-colors font-medium rounded-lg hover:bg-accent lg:hover:bg-transparent">
+                                Animation
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Search Bar -->
+                    <div class="relative w-full lg:w-80">
+                        <input 
+                            id="search-input"
+                            type="text" 
+                            placeholder="Search movies, shows..." 
+                            class="w-full px-4 py-2 pl-10 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 text-white  focus:outline-none focus:ring-2 focus:ring-accent focus:bg-white/20 transition-all"
+                        />
+                        <svg class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero-section" class="relative h-[80vh] w-full"></section>
+
+    <section class="p-8">
+        <h2 id="hero-h2" class="text-2xl font-bold text-white mb-6">Trending Now</h2>
+        <div id="top-movies-grid" class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            </div>
+    </section>
+    <section class="p-8">
+        <h2 class="text-2xl font-bold text-white mb-6">Categories</h2>
+        <div class="mb-6 flex flex-wrap gap-3 max-w-full md:gap-6">
+            <button class="category-btn bg-secondary p-3 rounded-lg border border-accent cursor-pointer whitespace-nowrap mb-2">ALL </button>
+            <button class="category-btn bg-secondary p-3 rounded-lg border border-accent cursor-pointer whitespace-nowrap mb-2" data-id="28">Action</button>
+            <button class="category-btn bg-secondary p-3 rounded-lg border border-accent cursor-pointer whitespace-nowrap mb-2" data-id="35">Comedy</button>
+            <button class="category-btn bg-secondary p-3 rounded-lg border border-accent cursor-pointer whitespace-nowrap mb-2" data-id="10749">Romance</button>
+            <button class="category-btn bg-secondary p-3 rounded-lg border border-accent cursor-pointer whitespace-nowrap mb-2" data-id="27">Horror</button>
+            <button class="category-btn bg-secondary p-3 rounded-lg border border-accent cursor-pointer whitespace-nowrap mb-2" data-id="878">Sci-Fi</button>
+        </div>
+        <div  id="movie-categories-grid" class="grid grid-cols-2 md:grid-cols-5 gap-4"></div>
+    </section>
+
+    <section  class="p-8">
+        <h2 class="text-2xl font-bold text-white mb-6">Coming soon..</h2>
+        <div id="upcoming-movies-grid" class="grid grid-cols-2 md:grid-cols-5 gap-4"></div>
+    </section>
+
+
+
+  <footer class="mt-12 border-t border-gray-700 bg-secondary text-white">
+  <div class="mx-auto max-w-7xl px-8 py-10">
+
+    <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+
+      <div class="text-center md:text-left">
+        <h1 class="mb-2 text-3xl font-bold text-white">FilmFind</h1>
+        <p class="text-sm text-gray-400">
+          Your ultimate movie discovery platform
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center gap-4">
+        <p class="text-sm font-semibold text-gray-400">Follow Us</p>
+
+        <div class="flex gap-6">
+          <a href="#" class="group transition-transform hover:scale-110">
+            <svg class="h-6 w-6 text-gray-400 transition-colors duration-300 group-hover:text-pink-500"
+                 viewBox="0 0 24 24" fill="currentColor">
+                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+
+          <a href="#" class="group transition-transform hover:scale-110">
+            <svg class="h-6 w-6 text-gray-400 transition-colors duration-300 group-hover:text-green-500"
+                 viewBox="0 0 24 24" fill="currentColor">
+                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487 2.082.899 2.503.719 2.949.676.446-.043 1.436-.587 1.639-1.154.202-.568.202-1.054.142-1.154z"/>
+            </svg>
+          </a>
+
+          <a href="#" class="group transition-transform hover:scale-110">
+            <svg class="h-6 w-6 text-gray-400 transition-colors duration-300 group-hover:text-blue-400"
+                 viewBox="0 0 24 24" fill="currentColor">
+                 <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center gap-2 md:items-end">
+        <p class="mb-1 text-sm font-semibold text-gray-400">Quick Links</p>
+        <a href="#" class="hover:text-white transition">About</a>
+        <a href="#" class="hover:text-white transition">Contact</a>
+        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+      </div>
+
+    </div>
+
+    <div class="mt-8 border-t border-accent pt-6 text-center">
+      <p class="text-sm text-gray-500">
+        &copy; 2026 FilmFind. All rights reserved. | Powered by
+        <a href="https://www.themoviedb.org/" target="_blank"
+           class="text-teal-400 hover:underline">
+          TMDB
+        </a>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<div id="modal" class="fixed inset-0 bg-body bg-opacity-25 flex items-center justify-center z-50 hidden">
+      <div id="modal-backdrop"
+         class="absolute inset-0 bg-black/70 backdrop-blur-sm">
+      </div>
+
+  <div id="movie-detail" class="bg-secondary p-6 rounded-lg shadow-lg max-w-sm  w-[80%]">
+    <h2 class="text-xl mb-4">Overlay Content</h2>
+    <button id="close-overlay" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+  </div>
+</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
