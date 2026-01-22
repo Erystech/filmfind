@@ -133,8 +133,8 @@ function updateHero(movie) {
             <h1 class="text-5xl font-extrabold text-text mb-4">${movie.title}</h1>
             <p class="text-text text-lg line-clamp-3 mb-6">${movie.overview}</p>
             <div class="flex gap-4">
-                <button class="bg-accent hover:bg-secondary text-white px-8 py-3 rounded font-bold transition cursor-pointer">Play Trailer</button>
-                <button class="bg-secondary hover:bg-accent text-white px-8 py-3 rounded font-bold transition border border-gray-600 cursor-pointer">More Info</button>
+                <button class="bg-accent hover:bg-secondary text-white px-8 py-3 rounded font-bold transition cursor-pointer" onclick="playTrailer('${movie.id}')">Play Trailer</button>
+                <button class="bg-secondary hover:bg-accent text-white px-8 py-3 rounded font-bold transition border border-gray-600 cursor-pointer" onclick="showMovieDetails('${movie.id}')">More Info</button>
             </div>
         </div>
     `;
